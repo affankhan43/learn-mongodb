@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blockchain</title>
+</head>
+<body>
+
+	<h1 class="xyz"></h1>
+	<button class="fetching">Get Data</button>
+	<table>
+		<thead>
+			<th>User ID</th>
+			<th>Name</th>
+			<th>Detail</th>
+		</thead>
+		<tbody class="tbdy"></tbody>
+	</table>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript">	
+		$('.fetching').on('click',(e)=>{
+			$.ajax({
+			    type:'GET',
+			    url:'https://jsonplaceholder.typicode.com/users',
+			    success: function (data){
+			        data.forEach((item)=>{
+			        	$('.tbdy').append('<tr><td>'+item.id+'</td><td>'+item.name+'</td><td>'+item.email+'</td></tr>')
+			        })
+			    },
+			    error: function (data){
+			        console.log(data)
+			    }
+			})
+		})
+		var a = {
+			"tx":[],
+			"block":[]
+		}
+		var address_data = {
+			"received":[]
+			"sent":[],
+			"balance":123
+		}
+		$.ajax({
+		    type:'POST',
+		    url:'https://jsonplaceholder.typicode.com/posts',
+            data:{'userid':123,'title':'asdasd','body':'asdsda'},
+		    success: function (data){
+		        console.log(data)
+		    },
+		    error: function (data){
+		        console.log(data)
+		    }
+		})
+	</script>
+</body>
+</html>
